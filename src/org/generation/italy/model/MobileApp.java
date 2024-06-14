@@ -83,7 +83,7 @@ public class MobileApp {
 	}
 
 
-public float valutazioneMedia(){
+public float valutazioneMedia(){//operazione per media fra le valutazioni
 	int counter=0, totVal=0;
 	float media=0;
 	for (Recensione r : elencoRecensioni) {

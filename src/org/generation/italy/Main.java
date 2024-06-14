@@ -5,22 +5,7 @@ import java.util.Scanner;
 import org.generation.italy.model.MobileApp;
 import org.generation.italy.model.Recensione;
 
-/*Nella classe Main:
-◦ chiedere all'utente di inserire nome, sistemaOperativo, prezzo
-dell'app
-◦ creare un oggetto della classe MobileApp passando al costruttore i
-parametri inseriti dall'utente
-◦ creare un menu con le seguenti voci:
-▪ download singolo
-▪ download multiplo (in questo caso chiedere all'utente il numero di
-download da effettuare)
-▪ ricevi recensione (in questo caso chiedere all'utente il nome, il
-stelle da assegnare, il testo della recensione; impostare la data
-automaticamente al giorno corrente)
-▪ visualizza recensioni
-▪ esci
-◦ dopo ogni chiamata ad una voce di menu visualizzare i dati della
-mobile app (valutazione media, ricavo totale)*/
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -37,6 +22,7 @@ public class Main {
 		System.out.println("Inserire il prezzo dell'applicazione: ");
 		prezzo = sc.nextDouble();
 		sc.nextLine();
+		//costruzione oggetto app
 		MobileApp app = new MobileApp(nome, OS, prezzo);
 		while (app.getPrezzo() <= 0) {
 			System.out.println("Inserire il prezzo dell'applicazione: ");
@@ -55,19 +41,20 @@ public class Main {
 			System.out.println("5) Esci");
 			scelta = sc.nextInt();
 			sc.nextLine();
+			//menu scelta
 			switch (scelta) {
-			case 1: {
+			case 1: {//download
 				System.out.println("App scaricata! Ricavo totale: "+app.download());
 				break;
 			}
-			case 2: {
+			case 2: {//download multiplo
 				System.out.println("Inserire quantità di download: ");
 				int qta=sc.nextInt();
 				sc.nextLine();
 				System.out.println("App scaricate! Ricavo totale: "+app.download(qta));
 				break;
 			}
-			case 3 :{
+			case 3 :{//costruzione recensione e aggiunta alla lista
 				System.out.println("Inserisci il Nome Utente");
 				String username=sc.nextLine();
 				System.out.println("Inserisci il numero di stelle da assegnare: ");
@@ -79,10 +66,11 @@ public class Main {
 				app.riceviRecensione(r);
 				break;
 			}
-			case 4 :{
+			case 4 :{//visualizza lista
 				for (Recensione r:app.getElencoRecensioni()) {
 					System.out.println("Recensione: \nNumero di Stelle: ");
 					int i;
+					//ciclo for per scrivere le stelline
 					for (i=0; i<r.getNumeroStelle(); i++)
 						System.out.print("★");
 					for (i=i; i<5; i++) {

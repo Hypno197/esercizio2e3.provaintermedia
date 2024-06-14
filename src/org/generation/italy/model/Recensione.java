@@ -28,7 +28,7 @@ public class Recensione {
 		return numeroStelle;
 	}
 
-	public int setNumeroStelle(int numeroStelle) throws Exception {
+	public int setNumeroStelle(int numeroStelle) throws Exception {//verifica num stelle tra 1 e 5
 		if (numeroStelle > 0 && numeroStelle < 6)
 			return numeroStelle;
 		else
@@ -52,7 +52,7 @@ public class Recensione {
 	}
 
 	@Override
-	public String toString() {
+	public String toString() {//tostring modificato per scrivere le recensioni
 		return "Data: " + data +"\nNome Utente: " + nomeUtente + "\nRecensione: \n''"
 				+ testo + "''";
 	}
